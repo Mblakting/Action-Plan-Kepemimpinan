@@ -1,0 +1,173 @@
+/* GLOBAL & THEME VARIABLES */
+:root {
+    --color-bg-dark: #121212; /* Background Utama Sangat Gelap */
+    --color-surface: #1e1e1e; /* Card/Surface Gelap */
+    --color-primary: #03dac6; /* Cyan Terang (Aksen Modern) */
+    --color-text-light: #e0e0e0; /* Teks Utama Terang */
+    --color-text-secondary: #a0a0a0; /* Teks Sekunder/Deskripsi */
+    --color-shadow: rgba(0, 0, 0, 0.4);
+}
+
+/* RESET & BODY STYLING (DARK MODE) */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.7;
+    background-color: var(--color-bg-dark);
+    color: var(--color-text-light);
+    transition: background-color 0.5s ease;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* TYPOGRAPHY */
+h1, h2, h3 {
+    font-weight: 600;
+    color: var(--color-text-light);
+}
+
+p {
+    color: var(--color-text-secondary);
+}
+
+/* HEADER/HERO SECTION */
+.hero {
+    background: linear-gradient(135deg, #1e1e1e, #0a0a0a);
+    padding: 80px 0;
+    text-align: center;
+    box-shadow: 0 5px 15px var(--color-shadow);
+    border-bottom: 2px solid var(--color-primary);
+}
+
+.hero h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+}
+
+.tagline {
+    font-size: 1.3em;
+    font-weight: 300;
+    color: var(--color-primary);
+}
+
+/* ACTION PLAN SECTION (ADVANCED RESPONSIVENESS) */
+.action-plan {
+    padding: 80px 0;
+}
+
+.action-plan h2 {
+    font-size: 2.5em;
+    text-align: center;
+    margin-bottom: 50px;
+    color: var(--color-primary);
+}
+
+/* CSS GRID LAYOUT UNTUK KETERAMPILAN */
+.plan-grid {
+    display: grid;
+    /* Membuat 3 kolom, minimal 300px per kolom */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.plan-item {
+    background: var(--color-surface);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px var(--color-shadow);
+    border: 1px solid #333;
+    text-align: center;
+    
+    /* ANIMASI HOVER CANGGIH */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, background 0.3s;
+}
+
+.plan-item:hover {
+    transform: translateY(-10px) scale(1.02); /* Menggeser ke atas dan sedikit membesar */
+    box-shadow: 0 15px 30px var(--color-shadow); /* Shadow lebih menonjol */
+    background: #2a2a2a; /* Perubahan background saat hover */
+}
+
+.plan-number {
+    display: inline-block;
+    font-size: 2.5em;
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: 10px;
+    line-height: 1;
+    position: relative;
+    /* Efek garis bawah animasi */
+}
+
+.plan-number::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 4px;
+    background: var(--color-primary);
+    margin-top: 5px;
+    transform: scaleX(0.7); /* Garis tebal di bawah angka */
+    border-radius: 2px;
+}
+
+.plan-item h3 {
+    font-size: 1.5em;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    /* Animasi warna pada hover */
+    transition: color 0.3s ease;
+}
+
+.plan-item:hover h3 {
+    color: white; /* Teks jadi lebih putih saat di-hover */
+}
+
+.plan-item p {
+    font-size: 0.95em;
+}
+
+/* FOOTER */
+footer {
+    background-color: var(--color-surface);
+    color: var(--color-text-secondary);
+    text-align: center;
+    padding: 25px 0;
+    font-size: 0.85em;
+    border-top: 1px solid #333;
+}
+
+/* MEDIA QUERIES (ADVANCED RESPONSIVENESS) */
+/* Pada layar tablet (768px), grid tetap 3 kolom, tapi font lebih kecil */
+@media (max-width: 1024px) {
+    .plan-item {
+        padding: 25px;
+    }
+    .hero h1 {
+        font-size: 2.5em;
+    }
+}
+
+/* Pada layar mobile kecil (di bawah 600px), diubah menjadi tumpukan 1 kolom */
+@media (max-width: 600px) {
+    .plan-grid {
+        grid-template-columns: 1fr; /* Tumpukan satu kolom */
+    }
+    .hero h1 {
+        font-size: 2em;
+    }
+    .plan-item {
+        transform: none !important; /* Nonaktifkan sebagian animasi hover di mobile */
+    }
+    .plan-item:hover {
+        transform: translateY(-5px); 
+    }
+}
