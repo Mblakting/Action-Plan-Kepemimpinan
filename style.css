@@ -48,10 +48,6 @@ p {
     border-bottom: 2px solid var(--color-primary);
 }
 
-.hero h1 {
-    font-size: 3em;
-}
-
 .tagline {
     font-size: 1.3em;
     font-weight: 300;
@@ -171,3 +167,4 @@ footer {
     }
 
 }
+
